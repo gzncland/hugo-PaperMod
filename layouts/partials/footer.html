@@ -3,13 +3,21 @@
     {{- if site.Copyright }}
     <span>{{ site.Copyright | markdownify }}</span>
     {{- else }}
-    <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a></span>
+    <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Params.footer.urlName }}</a></span>
     {{- end }}
+    {{ if site.Params.footer.showAbout }}
+    <span><a href="/about">About</a></span>
+    {{ end }}
+    {{ if site.Params.footer.showPrivacy }}
+    <span><a href="/privacy">Privacy</a></span>
+    {{ end }}
+    {{ if not site.Params.footer.hidePowered }}
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
+    {{ end }}
 </footer>
 {{- end }}
 
