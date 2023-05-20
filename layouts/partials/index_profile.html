@@ -31,7 +31,13 @@
         {{- end }}
         {{- end }}
         <h1>{{ .title | default site.Title | markdownify }}</h1>
-        <span>{{ .subtitle | markdownify }}</span>
+        {{- with .subtitles }}
+        <div>
+            {{- range . }}
+                <span>{{ .subtitle | markdownify }}</span><br>
+            {{- end }}
+        </div>
+        {{- end }}
         {{- partial "social_icons.html" site.Params.socialIcons -}}
 
         {{- with .buttons }}
