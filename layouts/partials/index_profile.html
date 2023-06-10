@@ -1,3 +1,11 @@
+{{- if site.Params.index.lunar }}
+<script src="lunar.js"></script>
+<script>
+    setTimeout(function (){
+        document.getElementById('lunar_text').textContent = Lunar.fromDate(new Date()).toFullString()
+    }, 100)
+</script>
+{{ end }}
 <div class="profile">
     {{- with site.Params.profileMode }}
     <div class="profile_inner">
@@ -59,6 +67,9 @@
             {{- end }}
         </div>
         {{- end }}
+        <div>
+            <p id="lunar_text"></p>
+        </div>
     </div>
     {{- end}}
 </div>
